@@ -1,6 +1,6 @@
 {
   "name": "power-clicks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add impact frames to your JS project",
   "license": "MIT",
   "author": "mrpinabutter",
@@ -15,6 +15,10 @@
       "require": "./index.js"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrpinabutter/power-clicks.git"
+  },
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "npm run build"
@@ -22,5 +26,17 @@
   "dependencies": {
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
-  }
+  },
+  "keywords": [
+    "animation",
+    "impact",
+    "click",
+    "canvas",
+    "effects",
+    "library",
+    "javascript",
+    "sound",
+    "visual",
+    "ui"
+  ]
 }
