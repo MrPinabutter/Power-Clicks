@@ -8,5 +8,5 @@
     "skipLibCheck": true,
     "outDir": "dist"
   },
-  "include": ["src", "mp3.d.ts"]
+  "include": ["src"]
 }
