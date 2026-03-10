@@ -1,6 +1,6 @@
 {
   "name": "power-clicks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Add impact frames to your JS project",
   "license": "MIT",
   "author": "mrpinabutter",
@@ -13,7 +13,7 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.esm.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
