@@ -5,10 +5,7 @@ export default defineConfig({
   format: ["cjs", "esm"],
   dts: true,
   clean: true,
-  loader: { ".mp3": "copy" },
-  esbuildOptions(options) {
-    options.assetNames = "sounds/[name]";
-  },
+  loader: { ".mp3": "dataurl" },
   outExtension({ format }) {
     return { js: format === "esm" ? ".esm.js" : ".js" };
   },
