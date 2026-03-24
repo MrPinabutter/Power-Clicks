@@ -1,4 +1,5 @@
-import { playSound, SoundName } from "./sounds";
+import { playSound, type SoundName } from "./sounds";
+export type { SoundName };
 
 const ANIMATION_DURATION = 2000;
 const FLASH_DURATION = ANIMATION_DURATION * 0.35;
@@ -90,14 +91,27 @@ function shakeElement(el: HTMLElement) {
   requestAnimationFrame(step);
 }
 
-export function runImpactAnimation(
-  clickX: number,
-  clickY: number,
-  target: HTMLElement,
-  soundName: SoundName = "cinematic",
-  soundVolume = 1,
-) {
-  if (soundName) playSound(soundName, soundVolume);
+export interface ImpactOptions {
+  /** Horizontal click position (px) */
+  x: number;
+  /** Vertical click position (px) */
+  y: number;
+  /** Element that will receive the shake effect */
+  target: HTMLElement;
+  /** Sound to play on impact (default: "cinematic") */
+  sound?: SoundName;
+  /** Sound volume from 0 to 1 (default: 1) */
+  volume?: number;
+}
+
+export function runImpactAnimation({
+  x,
+  y,
+  target,
+  sound = "cinematic",
+  volume = 1,
+}: ImpactOptions) {
+  if (sound) playSound(sound, volume);
 
   if (activeCanvas) {
     activeCanvas.remove();
@@ -126,9 +140,9 @@ export function runImpactAnimation(
   const flashStart = performance.now();
 
   const allRays: Ray[] = [
-    ...buildRays(clickX, clickY, 50, 100, 30),
-    ...buildRays(clickX, clickY, 150, 300, 80),
-    ...buildRays(clickX, clickY, 300, 400, 150),
+    ...buildRays(x, y, 50, 100, 30),
+    ...buildRays(x, y, 150, 300, 80),
+    ...buildRays(x, y, 300, 400, 150),
   ];
 
   let rafId: number;
